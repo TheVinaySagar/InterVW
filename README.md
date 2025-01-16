@@ -13,7 +13,7 @@ A full-stack web application for sharing and managing interview experiences. Use
   - Edit submissions
   - Delete submissions
   - View all personal submissions
-- Responsive Design with Dark UI theme
+- Responsive Design
 - Form validation and error handling
 
 ## Tech Stack
@@ -47,8 +47,8 @@ A full-stack web application for sharing and managing interview experiences. Use
 
 1. Clone the repository:
 ```bash
-git clone [your-repository-url]
-cd [project-directory]
+git clone https://github.com/TheVinaySagar/InterVW.git
+cd InterVW
 ```
 
 2. Install server dependencies:
