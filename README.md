@@ -133,6 +133,12 @@ npm start
 │   │   │   ├── EditSubmission.jsx
 │   │   │   ├── Login.jsx
 │   │   │   └── Register.jsx
+|   |   |   └── Layout.jsx
+|   |   |   └── ProtectedRoute.jsx
+|   |   |   └── SubmissionForm.jsx
+|   |   |   └── SubmissionList.jsx
+|   |   ├── components/
+            └── AuthContext.jsx
 │   │   ├── App.js
 │   │   └── index.js
 │   └── package.json
