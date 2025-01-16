@@ -62,8 +62,6 @@ router.get('/user', auth, async (req, res) => {
 router.put('/:id', auth, async (req, res) => {
   try {
     const { name, company, country, questions } = req.body;
-
-    // Find submission and check if user owns it
     const submission = await Submission.findOne({
       _id: req.params.id,
       userId: req.user._id
