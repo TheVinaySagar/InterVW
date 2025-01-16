@@ -1,168 +1,226 @@
-<h1 align="center">
-Cinema +
-</h1>
-<p align="center">
-MongoDB, Expressjs, React/Redux, Nodejs
-</p>
+# Interview Experience Portal
 
-[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/facebook/react/blob/master/LICENSE) [![npm version](https://img.shields.io/npm/v/react.svg?style=flat)](https://www.npmjs.com/package/react) 
+A full-stack web application for sharing and managing interview experiences. Users can submit, view, and manage their interview experiences across different companies.
 
-Cinema + is an online Movie Ticket Booking web app with MERN Stack.
+[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/facebook/react/blob/master/LICENSE) 
+[![npm version](https://img.shields.io/npm/v/react.svg?style=flat)](https://www.npmjs.com/package/react)
 
-  - Online Booking System
-  - Admin Dashboard
-  - Dark Theme UI
+## Features
 
+- User Authentication (Login/Register)
+- Homepage with all interview experiences
+- Personal Dashboard
+  - Edit submissions
+  - Delete submissions
+  - View all personal submissions
+- Responsive Design with Dark UI theme
+- Form validation and error handling
 
-> MERN is a fullstack implementation in MongoDB, Expressjs, React/Redux, Nodejs.
+## Tech Stack
 
-MERN stack is the idea of using Javascript/Node for fullstack web development.
+### Frontend
+- React.js
+- React Router v6 for navigation
+- Tailwind CSS for styling
+- React Hooks for state management
 
-<img src="https://github.com/georgesimos/readme-assets/blob/master/cinema-plus/mern.png" />
+### Backend
+- Node.js
+- Express.js
+- MongoDB
+- JWT Authentication
 
-# Features!
+## Prerequisites
 
-  - Add / Update / Delete Movies
-  - Add / Update / Delete Cinemas
-  - Add / Update / Delete Showtimes
-  - Add / Update / Delete Reservations
-  - Add / Update / Delete Users
-  - Generate QR Code for reservation check in
-  - Send HTML emails invitations 
+- Node.js (v14 or higher)
+- MongoDB
+- npm or yarn
 
+## Installation
 
-You can also:
-  - Export QR Code pass as PDF
+### Setting up MongoDB
 
-### Tech
-Cinema + uses a number of open source projects to work properly:
-* [MongoDB](https://www.mongodb.com/) - A document-oriented, No-SQL database used to store the application data.
-* [ExpressJS](https://expressjs.com/) - fast node.js network app framework.
-* [ReactJS](https://reactjs.org/) - A JavaScript library for building user interfaces.
-* [Redux](https://redux.js.org/) - A predictable state container for JavaScript apps.
-* [nodeJS](https://nodejs.org/) - A JavaScript runtime built on Chrome's V8 JavaScript engine
+1. Create a MongoDB database
+2. Copy your connection string
 
-### Installation
+### Server Setup
 
-Cinema + requires [Node.js](https://nodejs.org/)  to run.
-
-Set environment variables 
-
-```sh
-$ Create a .env file in your server and client folder
-$ See the .env sample
-create a mongodb database and add your connection string into .env file
+1. Clone the repository:
+```bash
+git clone [your-repository-url]
+cd [project-directory]
 ```
 
-Install the dependencies and devDependencies
-
-```sh
-$ git clone https://github.com/georgesimos/Movie-app.git
-$ npm install
-$ cd server npm install && npm start
-$ cd client npm install && npm start
-```
-Start the server.
-
-```sh
-$ cd server 
-$ npm install 
+2. Install server dependencies:
+```bash
+cd server
+npm install
 ```
 
-Start the client.
-
-```sh
-$ cd client 
-$ npm install 
-$ npm start
+3. Create a `.env` file in the server directory:
+```env
+MONGODB_URI=your_mongodb_connection_string
+JWT_SECRET=your_jwt_secret
+PORT=5000
 ```
 
-Start from root path
-```sh
-$ npm run server
-$ npm run client
+4. Install server dependencies:
+```bash
+npm install express mongoose dotenv cors jsonwebtoken bcryptjs
 ```
 
-### Plugins
+5. Start the server:
+```bash
+npm start
+```
 
-Cinema + is currently extended with the following plugins. Instructions on how to use them in your own application are linked below.
+### Client Setup
 
-### Server
+1. Navigate to client directory:
+```bash
+cd client
+```
 
+2. Install client dependencies:
+```bash
+npm install react react-dom react-router-dom @heroicons/react axios
+```
 
-| Plugin | README |
-| ------ | ------ |
-| concurrently | [plugins/concurrently/README.md](https://github.com/kimmobrunfeldt/concurrently/blob/master/README.md) |
-| bcryptjs | [plugins/bcryptjs/README.md](https://github.com/dcodeIO/bcrypt.js/blob/master/README.md) |
-| express | [plugins/express/README.md](https://github.com/expressjs/express/blob/master/Readme.md) |
-| googleapis | [plugins/googleapis/README.md](https://github.com/googleapis/googleapis/blob/master/README.md) |
-| jsonwebtoken | [plugins/jsonwebtoken/README.md](https://github.com/auth0/node-jsonwebtoken/blob/master/README.md) |
-| mongoose | [plugins/mongoose/README.md](https://github.com/Automattic/mongoose/blob/master/README.md) |
-| multer | [plugins/multer/README.md](https://github.com/expressjs/multer/blob/master/README.md)|
-| nodemailer | [plugins/nodemailer/README.md](https://github.com/nodemailer/nodemailer/blob/master/README.md) |
-| nodemon | [plugins/nodemon/README.md](https://github.com/remy/nodemon/blob/master/README.md) |
-| qrcode | [plugins/qrcode/README.md](https://github.com/soldair/node-qrcode/blob/master/README.md) |
+3. Install Tailwind CSS:
+```bash
+npm install -D tailwindcss postcss autoprefixer
+npx tailwindcss init -p
+```
 
-### Client
+4. Configure Tailwind CSS - Update tailwind.config.js:
+```javascript
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: [
+    "./src/**/*.{js,jsx,ts,tsx}",
+  ],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+}
+```
 
-| Plugin | README |
-| ------ | ------ |
-| fullcalendar | [plugins/fullcalendar/README.md](https://github.com/fullcalendar/fullcalendar/blob/master/README.md) |
-| material-ui | [plugins/material-ui/README.md](https://github.com/mui-org/material-ui/blob/master/README.md) |
-| moment | [plugins/moment/README.md](https://www.npmjs.com/package/@date-io/moment?activeTab=readme) |
-| jspdf | [plugins/jspdf/README.md](https://github.com/MrRio/jsPDF) |
-| react | [plugins/react/README.md](https://github.com/facebook/react/blob/master/README.md) |
-| react-facebook-login | [plugins/react-facebook-login /README.md](https://github.com/keppelen/react-facebook-login/blob/master/README.md) |
-| react-google-login | [plugins/react-google-login/README.md](https://www.npmjs.com/package/react-google-login) |
-| react-redux | [plugins/react-redux/README.md](https://github.com/reduxjs/react-redux) |
-| react-router-dom | [plugins/react-router/README.md](https://github.com/ReactTraining/react-router/blob/master/README.md) |
-| react-slick | [plugins/react-slick/README.md](https://github.com/akiran/react-slick) |
-| redux | [plugins/redux/README.md](https://github.com/reduxjs/redux)|
+5. Add Tailwind directives to ./src/index.css:
+```css
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+```
 
-### Todos
+6. Create a `.env` file in the client directory:
+```env
+REACT_APP_API_URL=http://localhost:5000/api
+```
 
- - Add Light Mode / More themes
+7. Start the client:
+```bash
+npm start
+```
 
+## Project Structure
 
+```
+├── client/
+│   ├── src/
+│   │   ├── components/
+│   │   │   ├── Dashboard.jsx
+│   │   │   ├── EditSubmission.jsx
+│   │   │   ├── Login.jsx
+│   │   │   └── Register.jsx
+│   │   ├── App.js
+│   │   └── index.js
+│   └── package.json
+├── server/
+│   ├── controllers/
+│   ├── models/
+│   ├── routes/
+│   ├── middleware/
+│   ├── server.js
+│   └── package.json
+└── README.md
+```
 
-# Screenshots! 
+## API Endpoints
 
-Movie Page
-<img src="https://github.com/georgesimos/readme-assets/blob/master/cinema-plus/movie.png" />
+### Authentication
+- `POST /api/auth/register` - Register new user
+- `POST /api/auth/login` - Login user
 
-<details>
-  <summary>More Screenshots</summary>
-  Booking Page
-  <img src="https://github.com/georgesimos/readme-assets/blob/master/cinema-plus/booking.png" />
+### Submissions
+- `GET /api/submissions` - Get all submissions
+- `GET /api/submissions/user` - Get user's submissions
+- `POST /api/submissions` - Create new submission
+- `PUT /api/submissions/:id` - Update submission
+- `DELETE /api/submissions/:id` - Delete submission
 
-  Booking Invitations
-  <img src="https://github.com/georgesimos/readme-assets/blob/master/cinema-plus/invitation.png" />
+## Dependencies
 
-  Guest Dashboard Page
-  <img src="https://github.com/georgesimos/readme-assets/blob/master/cinema-plus/guest-dashboard.png" />
+### Server Dependencies
+```json
+{
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.0",
+    "mongoose": "^7.0.3"
+  }
+}
+```
 
-  My Account Page
-  <img src="https://github.com/georgesimos/readme-assets/blob/master/cinema-plus/my-account.png" />
+### Client Dependencies
+```json
+{
+  "dependencies": {
+    "@heroicons/react": "^2.0.18",
+    "axios": "^1.4.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.11.2"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.14",
+    "postcss": "^8.4.23",
+    "tailwindcss": "^3.3.2"
+  }
+}
+```
 
-  Admin Home Page
-  <img src="https://github.com/georgesimos/readme-assets/blob/master/cinema-plus/admin-dashboard.png" />
+## Screenshots
 
-  Admin Cinema Page
-  <img src="https://github.com/georgesimos/readme-assets/blob/master/cinema-plus/admin-cinemas.png" />
+[Add your application screenshots here]
 
-  Admin Movie Page
-  <img src="https://github.com/georgesimos/readme-assets/blob/master/cinema-plus/admin-movies.png" />
+## Contributing
 
-  Admin Reservation Page
-  <img src="https://github.com/georgesimos/readme-assets/blob/master/cinema-plus/reservations.png" />
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
-  Admin Reservation Calendar
-  <img src="https://github.com/georgesimos/readme-assets/blob/master/cinema-plus/calendar.png" />
-</details>
+## Future Improvements
 
+- Add search functionality
+- Implement filters by company/location
+- Add comment system
+- Add upvote/downvote system
+- Add tags for technologies/skills
+- Implement rich text editor for submissions
 
+## License
 
-License
-----
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
 
-MIT
+## Acknowledgments
+
+- React Documentation
+- Tailwind CSS Documentation
+- MongoDB Documentation
+- Express.js Documentation
