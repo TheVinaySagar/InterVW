@@ -3,7 +3,7 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
-const MONGODB_URI = "mongodb+srv://vedant:1234@taskmanager.m1ymg.mongodb.net/InterVW?retryWrites=true&w=majority&appName=TaskManager"
+const MONGODB_URI = process.env.DATABASE
 
 const connectDB = async () => {
     try {
