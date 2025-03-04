@@ -18,7 +18,7 @@ function SubmissionsList() {
   useEffect(() => {
     const fetchSubmissions = async () => {
       try {
-        const response = await fetch(`/api/submissions?page=${currentPage}`);
+        const response = await fetch(`/api/submission?page=${currentPage}`);
         if (!response.ok) throw new Error('Failed to fetch submissions');
         const data = await response.json();
         setSubmissions(data.submissions);
@@ -218,7 +218,7 @@ function SubmissionsList() {
                   <button
                     key={i}
                     onClick={() => setCurrentPage(i + 1)}
-                    className={`px-4 py-2 rounded-md text-sm font-medium transition-colors duration-200 
+                    className={`px-4 py-2 rounded-md text-sm font-medium transition-colors duration-200
                       ${currentPage === i + 1
                         ? 'bg-indigo-600 text-white'
                         : 'text-gray-700 hover:bg-gray-50'}`}

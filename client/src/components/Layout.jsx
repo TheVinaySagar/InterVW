@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
+import { UserIcon } from "@heroicons/react/24/solid";
 
 function Layout({ children }) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
+  const [isOpen, setIsOpen] = useState(false);
   const { user, logout } = useAuth();
   const navigate = useNavigate();
 
@@ -26,7 +28,7 @@ function Layout({ children }) {
 
   const handleLogout = () => {
     logout();
-    navigate('/login');
+    navigate('/');
   };
 
   return (
@@ -87,22 +89,40 @@ function Layout({ children }) {
             {/* Desktop navigation */}
             <div className="hidden sm:flex sm:items-center sm:space-x-4">
               {user ? (
-                <>
-                  <Link
-                    to="/dashboard"
-                    className="text-gray-500 hover:text-gray-700 px-3 py-2 rounded-md text-sm font-medium"
-                  >
-                    Dashboard
-                  </Link>
-                  <span className="text-gray-700">Welcome, {user.name}</span>
-                  <button
-                    onClick={handleLogout}
-                    className="text-gray-500 hover:text-gray-700 px-3 py-2 rounded-md text-sm font-medium"
-                  >
-                    Sign out
-                  </button>
-                </>
-              ) : (
+                <div className="relative">
+                    {/* Avatar Button */}
+                    <button
+                    onClick={() => setIsOpen(!isOpen)}
+                    className="w-7 h-7 rounded-full bg-gray-300 flex items-center justify-center hover:bg-gray-400 transition"
+                    >
+                    <UserIcon className="w-6 h-6 text-gray-700" />
+                    </button>
+
+                    {/* Dropdown Menu */}
+                    {isOpen && (
+                    <div className="absolute right-0 mt-2 w-44 bg-white rounded-lg shadow-lg divide-y divide-gray-100 dark:bg-gray-700 dark:divide-gray-600">
+                        <ul className="py-2 text-sm text-gray-700 dark:text-gray-200">
+                        <li>
+                            <Link
+                            to="/dashboard"
+                            className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                            >
+                            Dashboard
+                            </Link>
+                        </li>
+                        </ul>
+                        <div className="py-1">
+                        <button
+                            onClick={handleLogout}
+                            className="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
+                        >
+                            Sign out
+                        </button>
+                        </div>
+                    </div>
+                    )}
+                </div>
+                ) : (
                 <>
                   <Link
                     to="/login"
@@ -153,6 +173,7 @@ function Layout({ children }) {
             >
               Home
             </Link>
+
             <Link
               to="/submit"
               className={`${isActive('/submit')
@@ -162,6 +183,7 @@ function Layout({ children }) {
             >
               Submit Experience
             </Link>
+
             {user ? (
               <>
                 <Link
@@ -170,7 +192,6 @@ function Layout({ children }) {
                 >
                   Dashboard
                 </Link>
-                <span className="block px-3 py-2 text-gray-700">Welcome, {user.name}</span>
                 <button
                   onClick={handleLogout}
                   className="block w-full text-left px-3 py-2 text-gray-500 hover:text-gray-700"

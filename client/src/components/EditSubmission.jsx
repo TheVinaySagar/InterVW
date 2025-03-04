@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const EditSubmission = ({ submission, onClose, onUpdate }) => {
-  // Add validation for submission prop
   if (!submission) {
     return (
       <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
@@ -30,7 +29,6 @@ const EditSubmission = ({ submission, onClose, onUpdate }) => {
   const [error, setError] = useState(null);
   const navigate = useNavigate();
 
-  // Use useEffect to set form data after component mounts
   useEffect(() => {
     if (submission) {
       setFormData({

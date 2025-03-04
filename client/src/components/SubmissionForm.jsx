@@ -50,15 +50,14 @@ function SubmissionForm() {
     setIsSubmitting(true);
 
     const token = localStorage.getItem('token');
-    console.log(token)
     if (!token) {
       alert('You need to log in first.');
-      navigate('/login'); // Adjust the path to your login page
+      navigate('/api/login'); // Adjust the path to your login page
       return;
     }
 
     try {
-      const response = await fetch('/api/submissions', {
+      const response = await fetch('/api/submission', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

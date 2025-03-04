@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';  // Add this import
+import { useNavigate } from 'react-router-dom';
 import EditSubmission from './EditSubmission';
 
 const Dashboard = () => {
@@ -16,7 +16,7 @@ const Dashboard = () => {
   const fetchSubmissions = async () => {
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch('/api/submissions/user', {
+      const response = await fetch('/api/submission/user', {
         headers: {
           'Authorization': `Bearer ${token}`
         }
@@ -39,7 +39,7 @@ const Dashboard = () => {
   const handleDelete = async (id) => {
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch(`/api/submissions/${id}`, {
+      const response = await fetch(`/api/submission/${id}`, {
         method: 'DELETE',
         headers: {
           'Authorization': `Bearer ${token}`
